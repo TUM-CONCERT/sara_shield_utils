@@ -47,3 +47,26 @@ target_include_directories(motion_node SYSTEM PUBLIC
 target_include_directories(motion_node PUBLIC
   include
 )
+
+
+add_executable(drive_to_position
+  src/drive_to_position.cc
+)
+
+add_dependencies(drive_to_position
+  ${${PROJECT_NAME}_EXPORTED_TARGETS}
+  ${catkin_EXPORTED_TARGETS}
+)
+
+target_link_libraries(drive_to_position PUBLIC
+  ${catkin_LIBRARIES}
+)
+
+target_include_directories(drive_to_position SYSTEM PUBLIC
+  ${catkin_INCLUDE_DIRS}
+)
+
+target_include_directories(drive_to_position PUBLIC
+  include
+)
+
